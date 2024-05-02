@@ -121,7 +121,7 @@ function App() {
   useEffect(() => {
     async function checkUserData() {
       try {
-        const response = await axios.get(`https://bwkp5dhdj7.execute-api.us-east-1.amazonaws.com/dev/api/v1/user/searchUser/f4587468-80d1-704d-5d25-4abea16f6c87`);
+        const response = await axios.get(`https://bwkp5dhdj7.execute-api.us-east-1.amazonaws.com/dev/api/v1/user/searchUser/${user?.username}`);
         if (response.data) {
           setUserDataFound(true);
           fetchRandomQuote(response.data.content.field); // Fetch random quote when user data is found

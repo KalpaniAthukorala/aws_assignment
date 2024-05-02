@@ -104,7 +104,7 @@ function App() {
   useEffect(() => {
     async function fetchFields() {
       try {
-        const response = await axios.get('http://a91987fa1ecfd4e7789588d72281d2e5-2098057441.us-east-1.elb.amazonaws.com/api/v1/field/getAllUsers');
+        const response = await axios.get('http://ab8ecf7ea3dc6449491f68332b9f442b-995925952.us-east-1.elb.amazonaws.com/api/v1/field/getAllUsers');
         if (response.data.code === '00') {
           setFields(response.data.content);
         } else {
@@ -121,7 +121,7 @@ function App() {
   useEffect(() => {
     async function checkUserData() {
       try {
-        const response = await axios.get(`http://a91987fa1ecfd4e7789588d72281d2e5-2098057441.us-east-1.elb.amazonaws.com/api/v1/user/searchUser/${user?.username}`);
+        const response = await axios.get(`http://ab8ecf7ea3dc6449491f68332b9f442b-995925952.us-east-1.elb.amazonaws.com/api/v1/user/searchUser/${user?.username}`);
         if (response.data) {
           setUserDataFound(true);
           fetchRandomQuote(response.data.content.field); // Fetch random quote when user data is found
@@ -152,7 +152,7 @@ function App() {
     setButtonClicked(true);
     
     try {
-      const response = await axios.post('http://a91987fa1ecfd4e7789588d72281d2e5-2098057441.us-east-1.elb.amazonaws.com/api/v1/user/saveUser', {
+      const response = await axios.post('http://ab8ecf7ea3dc6449491f68332b9f442b-995925952.us-east-1.elb.amazonaws.com/api/v1/user/saveUser', {
         userName: user.username,
         name: formData.name,
         userAdress: formData.address,

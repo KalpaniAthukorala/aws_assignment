@@ -104,7 +104,7 @@ function App() {
   useEffect(() => {
     async function fetchFields() {
       try {
-        const response = await axios.get('http://ab8ecf7ea3dc6449491f68332b9f442b-995925952.us-east-1.elb.amazonaws.com/api/v1/field/getAllUsers');
+        const response = await axios.get('https://bwkp5dhdj7.execute-api.us-east-1.amazonaws.com/dev/api/v1/field/getAllUsers');
         if (response.data.code === '00') {
           setFields(response.data.content);
         } else {
@@ -121,7 +121,7 @@ function App() {
   useEffect(() => {
     async function checkUserData() {
       try {
-        const response = await axios.get(`http://ab8ecf7ea3dc6449491f68332b9f442b-995925952.us-east-1.elb.amazonaws.com/api/v1/user/searchUser/${user?.username}`);
+        const response = await axios.get(`https://bwkp5dhdj7.execute-api.us-east-1.amazonaws.com/dev/api/v1/user/searchUser/f4587468-80d1-704d-5d25-4abea16f6c87`);
         if (response.data) {
           setUserDataFound(true);
           fetchRandomQuote(response.data.content.field); // Fetch random quote when user data is found
@@ -152,7 +152,7 @@ function App() {
     setButtonClicked(true);
     
     try {
-      const response = await axios.post('http://ab8ecf7ea3dc6449491f68332b9f442b-995925952.us-east-1.elb.amazonaws.com/api/v1/user/saveUser', {
+      const response = await axios.post('https://bwkp5dhdj7.execute-api.us-east-1.amazonaws.com/dev/api/v1/user/saveUser', {
         userName: user.username,
         name: formData.name,
         userAdress: formData.address,
@@ -193,7 +193,7 @@ function App() {
 
   const fetchRandomQuote = async (field) => {
     try {
-      const response = await axios.get(`http://a4373c5c4759d42218dbe9b479d40cb9-514636231.us-east-1.elb.amazonaws.com/api/v1/quote/getAllQuotes`);
+      const response = await axios.get(`https://bwkp5dhdj7.execute-api.us-east-1.amazonaws.com/dev/api/v1/quote/getAllQuotes`);
       if (response.data.code === '00') {
         // Filter quotes by the selected field
         const quotesByField = response.data.content.filter(quote => quote.field === field);
